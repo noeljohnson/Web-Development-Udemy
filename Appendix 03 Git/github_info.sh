@@ -9,5 +9,7 @@
 # check if successfull by the following command
 ## git remote -v 
 # (should have information about fetch: download and push: upload)
+# then push upstream to <remote-name> by the following command
+## git push -u <remote-name> <branch-name>
 
 ## TYJC
