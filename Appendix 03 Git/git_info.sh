@@ -18,4 +18,7 @@
 ## git config --list
 # the last command list all the configurations used
 
+# git log, lists all commit information along with author information and hash values 
+## git checkout <hash/branch-name> (goes to the specific hash or branch)
+
 ## TYJC
