@@ -21,4 +21,7 @@
 # git log, lists all commit information along with author information and hash values 
 ## git checkout <hash/branch-name> (goes to the specific hash or branch)
 
+#you can stage and commit in one command
+## git commit -a -m "<commit comment>"
+
 ## TYJC
