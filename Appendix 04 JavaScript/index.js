@@ -58,4 +58,88 @@ console.log(!!"abc") //returns wether a given value is truthy or falsy
 
 0 || console.log("Hello ||") //console.log() evaluated
 1 || console.log("Hi ||")// console.log() not evaluated
+
+//clear prior outputs
+console.clear()
+
+//ternary operator
+console.log(2 > 5 ? "Is greater" : "Is not greater");
+
+//Object Types
+const obj = {
+  name: "Jacob",
+  age: 41
+};
+
+console.log(obj);
+obj.job = "Programmer";
+delete obj.age //deleting an item from an object
+
+console.log(obj, obj["job"]);
+console.log(Object.keys(obj)); //access all the keys
+console.log(Object.values(obj)); //access all corresponding values
+
+// Arrays Object Types
+arr = [2, 3, 5];
+arr.push(4); //appends at the end of the array
+console.log(arr);
+console.log(Object.keys(arr)); //Accessing object methods
+arr.push(5);
+arr.pop(); //deletes the end element from the array
+console.log(arr);
+
+//functions
+function f1(a, b){
+  console.log(a, b);
+  return (a + b);
+}
+
+console.log(f1(2,3));
+console.log(f1(1));
+
+//anonymous functions, arrow notation
+const f2 = (a, b) =>{
+  console.log(a, b);
+  return (a + b);
+}
+
+console.log(f2(2,3));
+console.log(f2(1));
+
+//callback functions
+setTimeout(()=>{console.log("1s finished")}, 1000);
+
+//methods and properties in objects
+const math = {
+  pi: Math.PI,
+  sum: function (a, b){
+    return (a + b);
+  },
+  multiply: (a, b) =>{
+    return (a * b);
+  }
+};
+
+const [a4, b4] = [2, 3]; //array destructuring
+console.log(math.sum(a4, b4));
+console.log(math.multiply(a4, b4));
+
+//object destructuring
+console.log(obj);
+const {name, job} = obj;
+console.log(name, job);
+
+//using destructuring with functions
+function printInfo({name="Jane Doe", job="Student"}){
+  console.log(`${name} is a ${job}`);//template strings
+}
+
+printInfo(obj);
+
+// if else statements
+if (2 > 3){
+  console.log("Truthy");
+}else{
+  console.log("Falsy");
+}
 //TYJC
