@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  app:
+    image: t1:0.0.3
+    volumes:
+      - py_data:/app/data
+
+volumes:
+  py_data:

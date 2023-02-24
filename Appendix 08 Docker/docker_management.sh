@@ -39,4 +39,25 @@
 # to get access of the environment
 ## docker exec -it <container-id> sh //for shell
 
+# to do volume mapping
+# docker run -v <your-vol:docker-vol> <image-name>
+
+# to run a particular command in your container, without entering the container
+## <docker-run-command> <command-to-execute>
+
+# we can make new images by making Dockerfile
+# then we need to build it by running docker build <Dockerfile-directory-location> -t <image-name:tag>
+
+# to create a new network bridge
+## docker network create <network-bridge-name>
+# check and see if its made properly by listing all network items
+## docker network ls
+# to connect a container to a network brige
+## docker network connect <network-bridge-name/id> <container-name/id>
+# check if the container is connected to the bridge by using command `docker inspect <container-name/id>`
+
+# to run all this automatically use docker compose
+# to start `docker compose up`
+# to stop `docker compose down`
+
 ## TYJC
