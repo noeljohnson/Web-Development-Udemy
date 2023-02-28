@@ -6,12 +6,11 @@ import Welcome from './components/Welcome';
 import { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-const UNSPLASH_CLIENT_ID = process.env.REACT_APP_UNSPLASH_KEY;
-
 function App() {
   const [word, updWord] = useState('');
   const [images, updImages] = useState([]);
   const [numDelImg, updImgDelCount] = useState(0);
+  const API_URL = process.env.REACT_APP_API_URL;
 
   function updDeletions(){
     updImgDelCount(numDelImg + 1);
@@ -26,7 +25,7 @@ function App() {
         updWord={updWord}
         searchFunc={(e)=>{
           e.preventDefault();
-          let url = `https://api.unsplash.com/photos/random?query=${word}&client_id=${UNSPLASH_CLIENT_ID}`,
+          let url = `${API_URL}/new-image?query=${word}`,
             imgTitle = word;
           fetch(url).then(
             (resp) => resp.json()
