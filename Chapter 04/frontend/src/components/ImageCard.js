@@ -1,12 +1,14 @@
 //GTG
 
 import React from 'react';
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button, Nav } from 'react-bootstrap';
 
-function ImageCard({imgObj, updDeletions}){
+function ImageCard({imgObj, updDeletions, saveImgFunc}){
   let imgTitle = imgObj.title, 
   imgDesc = imgObj.description || imgObj.alt_description, 
-  srcLink = imgObj.urls.small;
+  srcLink = imgObj.urls.small,
+  imgAuthor = imgObj.user?.name || "No Author",
+  imgAuthPortfolioUrl = imgObj.user?.portfolio_url;
   console.log(
     `imgTitle:\"${imgTitle}\"`
   );
@@ -21,11 +23,33 @@ function ImageCard({imgObj, updDeletions}){
         <Button variant="primary"
           onClick={()=>{
             imgObj.isDeleted = true;
-            updDeletions();
+            if (imgObj.isSaved){
+              updDeletions(imgObj, 1);
+            }else{
+              updDeletions(imgObj);
+            }
           }}>
           Delete
-        </Button>
+        </Button>{' '}
+        {imgObj.isSaved || 
+          <Button variant="secondary"
+            onClick={()=>{
+              imgObj.isSaved = true;
+              saveImgFunc(imgObj);
+            }}>
+            Save
+          </Button>
+        }
       </Card.Body>
+      <Card.Footer style={{"textAlign": "center"}}>
+        {imgAuthPortfolioUrl ?
+          <Nav.Link eventKey="1" href={imgAuthPortfolioUrl} style={{"color": "#33ccff"}} target="_blank">
+            {imgAuthor}
+          </Nav.Link>
+            :
+          imgAuthor
+        }
+      </Card.Footer>
     </Card>
   );
 }
